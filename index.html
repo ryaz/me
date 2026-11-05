@@ -8,6 +8,9 @@
 <meta property="og:title" content="Dmytro Riazanov — AI agents &amp; product engineering">
 <meta property="og:description" content="Co-founder, ScrumLaunch. AI agents and product engineering for growth-stage companies.">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="https://dmytro.scrumlaunch.com/photo.jpg">
+<meta property="og:url" content="https://dmytro.scrumlaunch.com/">
+<link rel="icon" href="photo.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -68,6 +71,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   display: grid; place-items: center;
   font: 500 1.75rem/1 var(--font); color: var(--muted); letter-spacing: 0.02em;
 }
+.hero picture { flex-shrink: 0; line-height: 0; }
 .hero h1 { font-size: var(--step-3); line-height: 1.1; }
 .tagline { font-size: var(--step-1); color: var(--muted); max-width: 34em; margin-top: 12px; }
 .tagline strong { color: var(--fg); font-weight: 500; }
@@ -161,8 +165,10 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
 
   <!-- 1. Hero -->
   <section class="hero" aria-label="Introduction">
-    <!-- PHOTO: replace this div with <img class="photo" src="photo.jpg" alt="Dmytro Riazanov" width="272" height="272"> (square, ~544×544 px, JPG/WebP) -->
-    <div class="photo" role="img" aria-label="Dmytro Riazanov">DR</div>
+    <picture>
+      <source srcset="photo.webp" type="image/webp">
+      <img class="photo" src="photo.jpg" alt="Dmytro Riazanov" width="272" height="272" fetchpriority="high">
+    </picture>
     <div class="stack" style="gap:22px">
       <div>
         <h1>Dmytro Riazanov</h1>

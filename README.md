@@ -6,9 +6,7 @@ One-page personal site of Dmytro Riazanov. Plain static HTML: no build step, no 
 
 Everything is in `index.html`. Placeholders are marked with HTML comments:
 
-- **Photo**: put a square photo (~544×544, JPG or WebP) in the repo root as `photo.jpg`, then replace
-  `<div class="photo" ...>DR</div>` with
-  `<img class="photo" src="photo.jpg" alt="Dmytro Riazanov" width="272" height="272">`.
+- **Photo**: `photo.jpg` and `photo.webp` (544×544). Replace both files to change it.
 - **Case studies**: section "Selected work". Copy a `<a class="card">` block per case study.
 - **Email**: `dmytro@scrumlaunch.com` appears in the hero button and the Contact section.
 
