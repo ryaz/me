@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dmytro Riazanov — AI agents &amp; product engineering</title>
+<meta name="description" content="Dmytro Riazanov, co-founder of ScrumLaunch. AI agents and product engineering for growth-stage companies. Claude Certified Architect.">
+<meta property="og:title" content="Dmytro Riazanov — AI agents &amp; product engineering">
+<meta property="og:description" content="Co-founder, ScrumLaunch. AI agents and product engineering for growth-stage companies.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column (~680px), left-aligned, sections separated by space and a hairline; accent used only for links, buttons and the timeline dots. */
+:root {
+  --bg: #ffffff;
+  --fg: #14161c;
+  --muted: #5b6070;
+  --line: #e6e8ee;
+  --surface: #f6f7fa;
+  --accent: #2b4fd8;
+  --accent-fg: #ffffff;
+  --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.5rem;
+  --step-3: clamp(2rem, 6vw, 2.75rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1116; --fg: #eceef3; --muted: #9aa0b0; --line: #23262f;
+    --surface: #171a21; --accent: #7d97ff; --accent-fg: #0f1116; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1116; --fg: #eceef3; --muted: #9aa0b0; --line: #23262f;
+  --surface: #171a21; --accent: #7d97ff; --accent-fg: #0f1116; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 400 var(--step-0)/1.6 var(--font);
+  -webkit-font-smoothing: antialiased;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; }
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+section:first-child { border-top: 0; padding-block: 72px 56px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 600; letter-spacing: -0.015em; }
+h2 { font-size: var(--step-2); line-height: 1.25; }
+h3 { font-size: var(--step-1); line-height: 1.35; }
+p { margin: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.label { font: 500 0.75rem/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 24px; }
+
+/* Hero */
+.hero { display: flex; flex-direction: column; gap: 28px; }
+.photo {
+  width: 112px; height: 112px; border-radius: 50%; object-fit: cover;
+  background: var(--surface); border: 1px solid var(--line);
+  display: grid; place-items: center;
+  font: 500 1.75rem/1 var(--font); color: var(--muted); letter-spacing: 0.02em;
+}
+.hero h1 { font-size: var(--step-3); line-height: 1.1; }
+.tagline { font-size: var(--step-1); color: var(--muted); max-width: 34em; margin-top: 12px; }
+.tagline strong { color: var(--fg); font-weight: 500; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 8px; font: 500 0.95rem/1 var(--font);
+  border: 1px solid var(--accent); cursor: pointer; text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--accent-fg); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-ghost { background: transparent; color: var(--accent); }
+.btn-ghost:hover { background: var(--surface); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.card {
+  border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px;
+  display: flex; flex-direction: column; gap: 6px; min-width: 0;
+}
+.card p { color: var(--muted); }
+.card .num { font: 500 0.8rem/1 var(--mono); color: var(--accent); margin-bottom: 6px; }
+.note {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.95rem; color: var(--muted);
+  padding: 14px 18px; background: var(--surface); border-radius: 8px;
+}
+.note span::before { content: "✓"; color: var(--accent); margin-right: 8px; font-weight: 600; }
+
+/* Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.timeline li {
+  position: relative; padding: 0 0 28px 28px; min-width: 0;
+  display: grid; gap: 4px;
+}
+.timeline li::before {
+  content: ""; position: absolute; left: 0; top: 8px; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--bg); border: 2px solid var(--accent);
+}
+.timeline li::after {
+  content: ""; position: absolute; left: 5px; top: 22px; bottom: 2px; width: 1px; background: var(--line);
+}
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li:last-child::after { display: none; }
+.timeline li:first-child::before { background: var(--accent); }
+.tl-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+.tl-years { font: 400 0.85rem/1.4 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.timeline p { color: var(--muted); }
+
+/* Work */
+.work a.card { color: inherit; transition: border-color .2s ease; }
+.work a.card:hover { text-decoration: none; border-color: var(--accent); }
+.work .arrow { color: var(--accent); font-weight: 500; font-size: 0.95rem; margin-top: 6px; }
+
+/* Contact */
+.contact-lead { font-size: var(--step-2); line-height: 1.35; font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; }
+.contact-list { display: grid; gap: 0; margin: 0; }
+.contact-list div {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 16px;
+  padding-block: 14px; border-bottom: 1px solid var(--line); min-width: 0;
+}
+.contact-list div:first-child { border-top: 1px solid var(--line); }
+.contact-list dt { color: var(--muted); font-size: 0.9rem; }
+.contact-list dd { margin: 0; display: flex; align-items: center; gap: 12px; min-width: 0; overflow-wrap: anywhere; }
+.copy {
+  font: 500 0.8rem/1 var(--font); color: var(--muted); background: transparent;
+  border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; cursor: pointer;
+}
+.copy:hover { color: var(--fg); border-color: var(--muted); }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+
+@media (min-width: 640px) {
+  .hero { flex-direction: row; align-items: center; gap: 36px; }
+  .photo { width: 136px; height: 136px; flex-shrink: 0; }
+  .work .cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* Subtle fade on load only; content is visible at rest. */
+@media (prefers-reduced-motion: no-preference) {
+  .wrap > * { animation: fade .6s ease both; }
+  .wrap > *:nth-child(2) { animation-delay: .08s; }
+  .wrap > *:nth-child(n+3) { animation-delay: .16s; }
+  @keyframes fade { from { opacity: .001; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <!-- 1. Hero -->
+  <section class="hero" aria-label="Introduction">
+    <!-- PHOTO: replace this div with <img class="photo" src="photo.jpg" alt="Dmytro Riazanov" width="272" height="272"> (square, ~544×544 px, JPG/WebP) -->
+    <div class="photo" role="img" aria-label="Dmytro Riazanov">DR</div>
+    <div class="stack" style="gap:22px">
+      <div>
+        <h1>Dmytro Riazanov</h1>
+        <p class="tagline"><strong>Co-founder, ScrumLaunch</strong> · AI agents &amp; product engineering for growth-stage companies</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/dmytroriazanov" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="mailto:dmytro@scrumlaunch.com">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What I do now -->
+  <section class="stack" aria-labelledby="now">
+    <p class="label">What I do now</p>
+    <h2 id="now">AI that earns its place in the business</h2>
+    <div class="cards">
+      <article class="card">
+        <span class="num">Step 1</span>
+        <h3>Pick a real business decision</h3>
+        <p>We start with a decision AI should change, such as who to call, what to approve or what to fix first. If nothing changes, there is nothing to build.</p>
+      </article>
+      <article class="card">
+        <span class="num">Step 2</span>
+        <h3>Narrow first build on real data</h3>
+        <p>A small first version on your actual data, measured against an evaluation set we agree on before any code is written.</p>
+      </article>
+      <article class="card">
+        <span class="num">Step 3</span>
+        <h3>Production with monitoring</h3>
+        <p>Shipped into your stack with quality monitoring and a known cost per call, so you can see what it does and what it costs.</p>
+      </article>
+    </div>
+    <p class="note">
+      <span>ScrumLaunch is a Claude Certified Services Partner</span>
+      <span>I'm a Claude Certified Architect</span>
+    </p>
+  </section>
+
+  <!-- 3. Background -->
+  <section class="stack" aria-labelledby="bg">
+    <p class="label">Background</p>
+    <h2 id="bg">14 years building products</h2>
+    <ol class="timeline">
+      <li>
+        <div class="tl-head"><h3>ScrumLaunch</h3><span class="tl-years">2016 – now</span></div>
+        <p>Co-founder. 50+ products launched for companies from seed to Series D.</p>
+      </li>
+      <li>
+        <div class="tl-head"><h3>Instasize</h3><span class="tl-years">2016 – 2024</span></div>
+        <p>Led backend for a photo and video app used by millions.</p>
+      </li>
+      <li>
+        <div class="tl-head"><h3>Endeavor (WME | IMG), Beverly Hills</h3><span class="tl-years">2018</span></div>
+        <p>Led a team on an experiences marketplace. Built the New York Fashion Week website.</p>
+      </li>
+      <li>
+        <div class="tl-head"><h3>GlobalLogic, Svitla, Akvelon</h3><span class="tl-years">2012 – 2016</span></div>
+        <p>Ruby on Rails engineer.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 4. Selected work -->
+  <section class="stack work" aria-labelledby="work">
+    <p class="label">Selected work</p>
+    <h2 id="work">Case studies</h2>
+    <div class="cards">
+      <!-- CASE STUDY: confirm URL, title and one-line summary -->
+      <a class="card" href="https://scrumlaunch.com/work/outbound-sync" target="_blank" rel="noopener">
+        <h3>Outbound Sync</h3>
+        <p>Case study on scrumlaunch.com.</p>
+        <span class="arrow">Read the case study →</span>
+      </a>
+      <!-- Add a second case study card here by copying the block above -->
+      <a class="card" href="https://scrumlaunch.com/work" target="_blank" rel="noopener">
+        <h3>More ScrumLaunch work</h3>
+        <p>50+ products launched, from seed to Series D.</p>
+        <span class="arrow">See all case studies →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. Contact -->
+  <section class="stack" aria-labelledby="contact">
+    <p class="label">Contact</p>
+    <p id="contact" class="contact-lead">If you're working out where AI actually pays off in your product or operations, I'm happy to compare notes.</p>
+    <dl class="contact-list">
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:dmytro@scrumlaunch.com" id="email">dmytro@scrumlaunch.com</a><button class="copy" id="copy-email" type="button">Copy</button></dd>
+      </div>
+      <div>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/dmytroriazanov" target="_blank" rel="noopener">linkedin.com/in/dmytroriazanov</a></dd>
+      </div>
+      <div>
+        <dt>Company</dt>
+        <dd><a href="https://scrumlaunch.com" target="_blank" rel="noopener">scrumlaunch.com</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>© <span id="year">2026</span> Dmytro Riazanov</footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    var btn = document.getElementById('copy-email');
+    var addr = document.getElementById('email');
+    btn.addEventListener('click', function () {
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(addr);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected';
+      };
+      try {
+        navigator.clipboard.writeText(addr.textContent).then(done, fallback);
+      } catch (e) { fallback(); }
+    });
+  })();
+</script>
+</body>
+</html>
