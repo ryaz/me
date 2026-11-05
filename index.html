@@ -122,9 +122,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .timeline p { color: var(--muted); }
 
 /* Work */
-.work a.card { color: inherit; transition: border-color .2s ease; }
+.work a.card { color: inherit; justify-content: flex-start; transition: border-color .2s ease; }
 .work a.card:hover { text-decoration: none; border-color: var(--accent); }
-.work .arrow { color: var(--accent); font-weight: 500; font-size: 0.95rem; margin-top: 6px; }
+.work .arrow { color: var(--accent); font-weight: 500; font-size: 0.95rem; margin-top: auto; padding-top: 6px; }
 
 /* Contact */
 .contact-lead { font-size: var(--step-2); line-height: 1.35; font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; }
@@ -237,17 +237,25 @@ footer { padding-block: 32px 48px; border-top: 1px solid var(--line); color: var
     <p class="label">Selected work</p>
     <h2 id="work">Case studies</h2>
     <div class="cards">
-      <!-- CASE STUDY: confirm URL, title and one-line summary -->
-      <a class="card" href="https://scrumlaunch.com/work/outbound-sync" target="_blank" rel="noopener">
-        <h3>Outbound Sync</h3>
-        <p>Case study on scrumlaunch.com.</p>
+      <a class="card" href="https://www.scrumlaunch.com/work/harvest" target="_blank" rel="noopener">
+        <h3>Harvest</h3>
+        <p>AI app that negotiates bank fees for consumers. Acquired by Acorns.</p>
         <span class="arrow">Read the case study →</span>
       </a>
-      <!-- Add a second case study card here by copying the block above -->
-      <a class="card" href="https://scrumlaunch.com/work" target="_blank" rel="noopener">
+      <a class="card" href="https://www.scrumlaunch.com/work/campus-reel" target="_blank" rel="noopener">
+        <h3>CampusReel</h3>
+        <p>Student-made video platform that helps students choose a college. Millions of users a month, featured on the Today Show.</p>
+        <span class="arrow">Read the case study →</span>
+      </a>
+      <a class="card" href="https://www.scrumlaunch.com/work/comunity-founded" target="_blank" rel="noopener">
+        <h3>Community Funded</h3>
+        <p>Enterprise crowdfunding platform for large U.S. universities. ScrumLaunch has run its development since 2019.</p>
+        <span class="arrow">Read the case study →</span>
+      </a>
+      <a class="card" href="https://www.scrumlaunch.com/" target="_blank" rel="noopener">
         <h3>More ScrumLaunch work</h3>
         <p>50+ products launched, from seed to Series D.</p>
-        <span class="arrow">See all case studies →</span>
+        <span class="arrow">Visit scrumlaunch.com →</span>
       </a>
     </div>
   </section>
